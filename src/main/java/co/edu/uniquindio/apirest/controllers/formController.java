@@ -10,13 +10,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/form")
+@RequestMapping("/")
 public class formController {
 
     @Autowired
     private PqrsServiceImpl pqrsService;
 
-    @GetMapping("")
+    @GetMapping("/")
+    public String mostrarInicio(Model model){
+        model.addAttribute("titulo","Inicio de gestion de PQRS");
+        return "inicio";
+    }
+
+    @GetMapping("/form")
     public String mostrarFormulario(Model model){
         Pqrs pqrs = new Pqrs();
         model.addAttribute("titulo","Crear PQRS");
@@ -28,6 +34,13 @@ public class formController {
     public String guardarPqrs(Pqrs pqrs){
         pqrsService.guardarPqrs(pqrs);
         return "redirect:/form";
+    }
+
+    @GetMapping("/listar")
+    public String listarPqrs(Model model){
+        model.addAttribute("titulo","lista de pqrs");
+        model.addAttribute("pqrs_list",pqrsService.listarPqrs());
+        return "listarPQRS";
     }
 
 
