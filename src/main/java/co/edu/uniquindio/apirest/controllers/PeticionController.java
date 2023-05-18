@@ -4,9 +4,7 @@ import co.edu.uniquindio.apirest.entities.Pqrs;
 import co.edu.uniquindio.apirest.services.PqrsService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,4 +20,16 @@ public class PeticionController {
     public List<Pqrs> listAllPqrs(){
         return pqrsService.listarPqrs();
     }
+
+    @GetMapping("/{id}")
+    public Pqrs buscarPqrs(@PathVariable("id") Long id){
+        return pqrsService.buscarPorId(id);
+    }
+
+    @PostMapping("")
+    public Pqrs guardarPqrs(@RequestBody Pqrs pqrs){
+        return pqrsService.guardarPqrs(pqrs);
+    }
+
+
 }

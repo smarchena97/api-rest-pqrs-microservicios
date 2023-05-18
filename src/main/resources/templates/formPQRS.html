@@ -28,7 +28,7 @@
     <div class="card bg-light">
         <div class="card-header" th:text="${titulo}"></div>
         <div class="card-body">
-            <form th:action="@{/form/guardar}" th:object="${pqrs}" method="post">
+            <form th:action="@{/guardar}" th:object="${pqrs}" method="post">
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" th:text="'Asunto'"></label>
                     <input type="text" th:field="*{asunto}" class="form-control"/>

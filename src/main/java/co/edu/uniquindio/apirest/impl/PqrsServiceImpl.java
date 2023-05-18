@@ -23,4 +23,9 @@ public class PqrsServiceImpl implements PqrsService {
     public Pqrs guardarPqrs(Pqrs pqrs) {
         return pqrsRepository.save(pqrs);
     }
+
+    @Override
+    public Pqrs buscarPorId(Long id) {
+        return pqrsRepository.findById(id).get();
+    }
 }

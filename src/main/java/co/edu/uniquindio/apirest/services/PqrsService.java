@@ -9,4 +9,6 @@ public interface PqrsService {
     public List<Pqrs> listarPqrs();
 
     public Pqrs guardarPqrs(Pqrs pqrs);
+
+    public Pqrs buscarPorId(Long id);
 }
